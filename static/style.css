@@ -1,0 +1,238 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+/* =========================
+   LOGIN PAGE ONLY
+========================= */
+
+body:not(.dashboard-body) {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 35px;
+    width: 360px;
+    border-radius: 16px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.login-card input:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-card button:hover {
+    background: #5a67d8;
+}
+
+.error {
+    margin-top: 10px;
+    color: red;
+    font-size: 13px;
+}
+
+.success {
+    margin-top: 10px;
+    color: green;
+    font-size: 13px;
+}
+
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
+.dashboard-body {
+    background: #f4f6fb;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Header */
+.dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 20; /* reduced to avoid overlap bugs */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logout button */
+.logout-btn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    opacity: 0.9;
+}
+
+/* Main grid */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    align-items: start;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+/* Card headings */
+.card h3 {
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.card button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #5a67d8;
+}
+
+/* Streak card */
+.streak-card {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+    text-align: center;
+}
+
+.streak-card p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Summary card */
+.summary-card {
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);
+}
+
+/* =========================
+   CHART FIXES (IMPORTANT)
+========================= */
+
+canvas {
+    width: 100% !important;
+    height: auto !important; /* FIXED */
+    pointer-events: auto;
+}
+
+/* Chart containers */
+.card > div {
+    position: relative;
+}
+
+/* =========================
+   TABLE (HISTORY PAGE)
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f0f2ff;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    text-align: left;
+    color: #555;
+}
+
+td {
+    color: #333;
+}
+button {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 999;
+}

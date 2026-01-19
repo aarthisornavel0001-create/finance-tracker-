@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker | Dashboard</title>
+
+    <!-- MAIN STYLES -->
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- Chart.js MUST load BEFORE script.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-body">
+
+<!-- ================= HEADER ================= -->
+<div class="dashboard-header">
+    <h2>Welcome, <span id="userName"></span></h2>
+    <button class="logout-btn" type="button" onclick="logout()">Logout</button>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="dashboard-container">
+
+    <!-- STREAK -->
+    <div class="card streak-card">
+        <h3>🔥 Current Streak</h3>
+        <p id="streakCount">0 Days</p>
+    </div>
+
+    <!-- MONTHLY BUDGET -->
+    <div class="card">
+        <h3>Monthly Budget</h3>
+        <input type="number" id="budgetInput" placeholder="Set Budget (₹)">
+        <button type="button" id="saveBudgetBtn">Save Budget</button>
+        <p id="budgetStatus"></p>
+    </div>
+
+    <!-- ADD EXPENSE -->
+    <div class="card">
+        <h3>Add Daily Expense</h3>
+        <input type="number" id="amount" placeholder="Amount (₹)">
+        <input type="text" id="category" placeholder="Category">
+        <button type="button" id="addExpenseBtn">Add Expense</button>
+        <p class="success" id="successMsg"></p>
+    </div>
+
+    <!-- WEEKLY SUMMARY -->
+    <div class="card summary-card">
+        <h3>Weekly Summary</h3>
+        <p>Total: ₹ <span id="weeklyTotal">0</span></p>
+    </div>
+
+    <!-- MONTHLY SUMMARY -->
+    <div class="card summary-card">
+        <h3>Monthly Summary</h3>
+        <p>Total: ₹ <span id="monthlyTotal">0</span></p>
+    </div>
+
+    <!-- BAR CHART -->
+    <div class="card">
+        <h3>Expense Overview (Weekly vs Monthly)</h3>
+        <div style="height:300px;">
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div>
+
+    <!-- PIE CHART -->
+    <div class="card">
+        <h3>Category-wise Expense Distribution</h3>
+        <div style="height:300px;">
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- MONTH PREDICTION -->
+    <div class="card summary-card">
+        <h3>📊 Predicted Month Spend</h3>
+        <p>₹ <span id="predictedAmount">0</span></p>
+        <small id="predictionNote"></small>
+    </div>
+
+    <!-- ML TREND TEXT -->
+    <div class="card summary-card">
+        <h3>🧠 ML Spending Trend</h3>
+        <p id="mlTrend">Analyzing...</p>
+        <small id="mlInsight"></small>
+    </div>
+
+    <!-- ML TREND LINE -->
+    <div class="card">
+        <h3>📈 ML Trend Line</h3>
+        <div style="height:300px;">
+            <canvas id="mlChart"></canvas>
+        </div>
+    </div>
+
+    <!-- CATEGORY ML -->
+    <div class="card">
+        <h3>📊 Category-wise ML Prediction</h3>
+        <table style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Predicted Spend (₹)</th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody id="mlCategoryTable">
+                <tr>
+                    <td colspan="3" style="text-align:center; color:#777;">
+                        ML predictions will appear here
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="card">
+        <button type="button" onclick="window.location.href='history.html'">
+            View Expense History
+        </button>
+    </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script src="../static/script.js" defer></script>
+
+</body>
+</html>
